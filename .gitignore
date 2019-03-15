@@ -2,9 +2,8 @@
 #directories
 .idea/
 __pycache__/
+data/
 
 #files
 test.py
-data/
-!data/contacts.pkl
-!data/contacts.pkl.log
+!contacts_backup.pkl
