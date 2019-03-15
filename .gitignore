@@ -1,8 +1,10 @@
 
 #directories
+
 .idea/
 __pycache__/
 
 #files
-test.py
 
+test.py
+data/contacts.pkl.log

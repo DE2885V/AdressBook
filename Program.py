@@ -4,7 +4,7 @@ import time
 import os
 
 VERSION = 3.0
-WIDTH = 50
+WIDTH = 70
 UI = \
 '''
 ----------------
