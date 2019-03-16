@@ -6,4 +6,5 @@ data/
 
 #files
 test.py
+data/*.pkl
 !contacts_backup.pkl
