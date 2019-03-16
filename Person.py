@@ -1,18 +1,27 @@
-CARDS = '''
-******************************
-|
-|    Name:\t{name}
-|   Phone:\t{phone}
-|  Adress:\t{adress}
-|
-******************************
+CARD = '''
+******************************************
+|                                         |
+|     Name:\t{name:<30}|
+|    Phone:\t{phone:<30}|
+|   Adress:\t{adress:<30}|
+|   E-mail:\t{email:<30}|
+| Telegram:\t{telegram:<30}|
+| Whatsapp:\t{whatsapp:<30}|
+|                                         |
+******************************************
 '''
 
 class Person(object):
-    def __init__(self, name = 'no name', phone = None, adress = None):
-        self.name = name
-        self.phone = phone
-        self.adress = adress
+
+    def __init__(self, **kwargs):
+        self.name       = '-'
+        self.phone      = '-'
+        self.adress     = '-'
+        self.email      = '-'
+        self.telegram   = '-'
+        self.whatsapp   = '-'
+
+        self.__dict__.update(**kwargs)
 
     def __str__(self):
-        return CARDS.format(**self.__dict__)
+        return CARD.format(**self.__dict__)

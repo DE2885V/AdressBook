@@ -1,10 +1,10 @@
-from  Person import Person
+from Person import Person
 import pickle
 import time
 import os
 
 VERSION = 3.0
-WIDTH = 70
+WIDTH = 117
 UI = \
 '''
 ----------------
@@ -28,7 +28,7 @@ How to show?
 ----------------
 '''
 
-TABLE_FORM = '{:<30}{:<18}{:<10}'
+TABLE_FORM = '| {:<30}| {:<18}| {:<10}| {:<15}| {:<15}| {:<12} \t|'
 DIR_DB = 'data/'
 
 #### Program ####
@@ -65,11 +65,13 @@ class Program(object):
 
                     # like list
                     if how_show == 1:
-                        print(TABLE_FORM.format('names','phones','adress')) # header
+                        # header
+                        print(TABLE_FORM.format('name','phone','adress', 'email', 'telegram', 'whatsapp'))
                         print('-' * WIDTH)
 
                         for cnt in self.data_dict.values():
-                            print(TABLE_FORM.format(cnt.name,cnt.phone, cnt.adress))
+                            a = tuple([x for x in cnt.__dict__.values()])
+                            print(TABLE_FORM.format(*a))
 
                         print('-' * WIDTH)
                         break
@@ -99,8 +101,18 @@ class Program(object):
 
             phone = str(input('Phone: '))
             adress = input('Adress: ')
+            email = str(input('Email: '))
+            telegram = input('Telegram: ')
+            whatsapp = str(input('Whatsapp: '))
 
-            self.data_dict.update({name : Person(name=name, phone=phone, adress=adress)})
+            self.data_dict.update({name : Person(
+                name=name,
+                phone=phone,
+                adress=adress,
+                email = email,
+                telegram = telegram,
+                whatsapp = whatsapp
+            )})
         else:
             print('Contact with name: {} already exists!'.format(name))
             answer = input("Change this contacts? ('Y/n') ")
